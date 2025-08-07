@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fake Review Detector</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="page-transition">
+        <header>
+            <div class="header-left">
+                <a href="#" class="home-link">Home</a>
+            </div>
+            <div class="header-right">
+                <a href="#">About Us</a>
+                <a href="#">Contact</a>
+            </div>
+        </header>
+
+        <main>
+            <div class="container">
+                <h1>Fake Review Detection</h1>
+                <p class="subtitle">Paste any product review below to check if it’s likely <strong>Genuine</strong> or <strong>Fake</strong>.</p>
+
+                <form action="/predict" method="post">
+                    <textarea name="review" placeholder="Enter your product review here..." required>{{ request.form.review }}</textarea>
+                    <button type="submit">Analyze Review</button>
+                </form>
+
+                {% if prediction %}
+                <div class="result">
+                    <p class="label">Prediction:</p>
+                    <span class="badge {{ 'genuine' if prediction == 'Genuine' else 'fake' }}">{{ prediction }}</span>
+                    <p class="prob">Probability of being genuine: <strong>{{ probability }}</strong></p>
+                </div>
+                {% endif %}
+            </div>
+        </main>
+
+        <footer>
+            &copy; 2025 Fake Review Detector. All rights reserved.
+        </footer>
+    </div>
+</body>
+</html>

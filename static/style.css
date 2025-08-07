@@ -1,0 +1,218 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body & layout */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #AED581, #01579B);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    color: #333;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.page-transition {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+header {
+    width: 100%;
+    padding: 20px 40px;
+    background: linear-gradient(to right, #1B5E20, #1A237E);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    animation: fadeInDown 0.8s ease-in-out;
+}
+
+.header-left .home-link {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.header-left .home-link:hover {
+    color: #dff9fb;
+}
+
+.header-right a {
+    color: white;
+    margin-left: 30px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.header-right a:hover {
+    color: #dff9fb;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Main content */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+/* Container */
+.container {
+    background: #E0E0E0;
+    padding: 40px 50px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+h1 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+form textarea {
+    width: 100%;
+    height: 150px;
+    padding: 15px;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    resize: vertical;
+    margin-bottom: 20px;
+    transition: 0.3s;
+}
+
+form textarea:focus {
+    outline: none;
+    border-color: #4b7bec;
+    box-shadow: 0 0 8px rgba(75, 123, 236, 0.5);
+}
+
+button {
+    background-color: #4b7bec;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+button:hover {
+    background-color: #3867d6;
+    transform: scale(1.05);
+}
+
+/* Prediction result */
+.result {
+    margin-top: 25px;
+    font-size: 1.1rem;
+    text-align: center;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.badge {
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-weight: bold;
+    color: white;
+    font-size: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.badge:hover {
+    transform: scale(1.1);
+}
+
+.badge.genuine {
+    background-color: #2ecc71;
+}
+
+.badge.fake {
+    background-color: #e74c3c;
+}
+
+.prob {
+    margin-top: 10px;
+    font-size: 0.95rem;
+    color: #666;
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(to right, #a8edea, #fed6e3);
+    padding: 15px 0;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #444;
+    border-top: 1px solid #ddd;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .header-right {
+        display: flex;
+        gap: 20px;
+    }
+
+    .container {
+        padding: 30px 20px;
+    }
+
+    button {
+        width: 100%;
+    }
+}
